@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{{ sitename }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap VueCSS -->
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap@next/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+
+    <link href="{{ base_url() }}/css/bootstrap/sketchy.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ base_url() }}/css/app.css" rel="stylesheet" type="text/css">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+    <a class="navbar-brand" href="#">{{ sitename }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% if is_current_path('homepage') %}active{% endif %}">
+                <a href="{{ path_for('homepage') }}" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Two</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Three</a>
+            </li>
+            <li class="nav-item {% if is_current_path('admin') %}active{% endif %}">
+                <a href="{{ path_for('admin') }}" class="nav-link">Admin secret stuff</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<main role="main">
+
+    <div class="container">
+        <h2>Vue app quick example</h2>
+
+
+
+        {% verbatim %}
+        <div id="app" class="row">
+            <div class="card-columns"></div>
+            <div v-for="item in results" class="card">
+            <!--<div class="card">-->
+                <img class="card-img-top" :src="item.thumb" alt="..">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">description.</p>
+                </div>
+            <!--</div>-->
+            </div>
+
+            <div class="col-md-12">
+                <p>{{ message }}</p>
+            </div>
+        </div>
+
+        {% endverbatim %}
+
+
+    </div>
+
+</main>
+
+<footer class="container-fluid">
+    <p>&copy; PHPetra 2017</p>
+</footer>
+
+
+<!-- Axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<!-- Vue with bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+
+<script src="{{ base_url() }}/js/vue-app.js"></script>
+
+{% block javascript %}{% endblock %}
+</body>
+</html>
