@@ -1,0 +1,50 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:stable-alpine
+    ports:
+      - "8801:80"
+    volumes:
+     - .:/var/www/html
+     - ./docker/nginx/app.conf:/etc/nginx/conf.d/default.conf
+    networks:
+     - appnet
+    depends_on:
+      - php
+    links:
+      - db
+
+  php:
+    container_name: php
+    build: ./docker/php/
+    volumes:
+     - .:/var/www/html
+    networks:
+     - appnet
+    environment:
+        PHP_IDE_CONFIG: "serverName=PHPSTORM"
+    links:
+      - db
+
+  db:
+    container_name: db
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306"
+    volumes:
+     - ./docker/mysql/data:/docker-entrypoint-initdb.d
+    networks:
+     - appnet
+
+networks:
+  appnet:
+    driver: "bridge"
+volumes:
+  data:
+    driver: "local"

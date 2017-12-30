@@ -1,0 +1,17 @@
+vendor/
+!/storage/cache
+/storage/cache/*
+!storage/cache/.keepme
+!/storage/log
+/storage/log/*
+!storage/log/.keepme
+.idea/
+.DS_Store
+app/settings.php
+composer.phar
+
+!/docker/mysql/data
+/docker/mysql/data/*
+!docker/mysql/data/.keepme
+
+

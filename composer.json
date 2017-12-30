@@ -1,0 +1,29 @@
+{
+    "name": "phpetra/slim3-skeleton",
+    "description": "Slim Framework 3 skeleton with Twig, Monolog, Twitter bootstrap 4, MySQL, Basic Auth and docker configured. Based on akrabat/slim3-skeleton, but tweaked to my needs.",
+    "license": "BSD-3-Clause",
+    "type": "project",
+    "keywords": ["slim-framework", "skeleton"],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Petra ",
+            "email": "phpetra@xs4all.nl",
+            "homepage": "http://akrabat.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src",
+            "Leones\\": "src/Leones/"
+        }
+    },
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.0",
+        "slim/flash": "^0.1.0",
+        "monolog/monolog": "^1.13",
+        "tuupola/slim-basic-auth": "^2.2"
+    }
+}
