@@ -17,7 +17,7 @@ It includes MySQL pdo, a few [bootstrap 4 templates from bootswatch](https://boo
 
 You have a few options depending on your setup:
 
-###With own web server
+### With own web server
 Point your virtual host document root to your new application's `public/` directory.
 
 ### With docker
