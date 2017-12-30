@@ -1,5 +1,8 @@
-# Petra's Slim skeleton with Twig, bootstrap 4, MySQL, Basic Auth and docker
+# Slim 3 skeleton with Twig, bootstrap 4, MySQL, Basic Auth and docker
 
+Based on [akrabat/slim3-skeleton](https://github.com/akrabat/slim3-skeleton) but adapted to my needs.
+
+It includes MySQL pdo, a few [bootstrap 4 templates from bootswatch](https://bootswatch.com/), Basic Auth and docker setup. 
 
 ## Install the app
 
